@@ -205,7 +205,10 @@ const createClient = (profile, userAgent, request = _request) => {
 				// todo: what is req.gisFltrL?
 				getPT: true, // todo: what is this?
 				getIV: false, // todo: walk & bike as alternatives?
-				getPolyline: !!opt.polylines
+				getPolyline: !!opt.polylines,
+				// todo: what is getEco, ushrp, fwrd?
+				indoor: false,
+				getIST: false
 			}
 			if (profile.journeysNumF) query.numF = opt.results
 
