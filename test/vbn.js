@@ -39,7 +39,7 @@ const client = createClient(vbnProfile, 'public-transport/hafas-client:test')
 const bremenHbf = '8000050'
 const bremerhavenHbf = '8000051'
 
-test.only('journeys – Bremen Hbf to Bremerhaven Hbf', async (t) => {
+test('journeys – Bremen Hbf to Bremerhaven Hbf', async (t) => {
 	const res = await client.journeys(bremenHbf, bremerhavenHbf, {
 		results: 4,
 		departure: when,
@@ -58,7 +58,7 @@ test.only('journeys – Bremen Hbf to Bremerhaven Hbf', async (t) => {
 
 // todo: journeys, only one product
 
-test.skip('journeys – fails with no product', (t) => {
+test('journeys – fails with no product', (t) => {
 	journeysFailsWithNoProduct({
 		test: t,
 		fetchJourneys: client.journeys,
@@ -117,7 +117,7 @@ test.skip('Magdeburg Hbf to Kloster Unser Lieben Frauen', async (t) => {
 	t.end()
 })
 
-test.skip('journeys: via works – with detour', async (t) => {
+test.only('journeys: via works – with detour', async (t) => {
 	// Going from Magdeburg, Hasselbachplatz (Sternstr.) (Tram/Bus) to Stendal
 	// via Dessau without detour is currently impossible. We check if the routing
 	// engine computes a detour.
